@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:colorBackground"
-    tools:context="com.ql.customview.MainActivity">
+    android:background="@android:color/background_dark"
+    tools:context="com.ql.customview.activity.MainActivity">
 
 
-    <com.ql.customview.Path
+    <com.ql.customview.paint.PathEffect
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </RelativeLayout>

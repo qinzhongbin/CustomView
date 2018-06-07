@@ -1,4 +1,4 @@
-package com.ql.customview;
+package com.ql.customview.paint;
 
 import android.content.Context;
 import android.graphics.Canvas;

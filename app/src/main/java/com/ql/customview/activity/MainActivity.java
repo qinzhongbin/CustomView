@@ -1,15 +1,11 @@
-package com.ql.customview;
+package com.ql.customview.activity;
 
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.ql.customview.R;
+
 public class MainActivity extends AppCompatActivity {
-
-    private Paint paint;
-    private Path path;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

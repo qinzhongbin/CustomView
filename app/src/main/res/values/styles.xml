@@ -6,13 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="CustomStyle">@style/customStyle</item>
+        <item name="CustomStyle">@style/CustomStyle</item>
     </style>
 
-
-    <style name="customStyle">
-        <item name="titleText">哈哈</item>
+    <style name="CustomStyle">
+        <item name="text">万剑一</item>
     </style>
-
-    <style name="QL" parent="Theme.AppCompat.NoActionBar" />
 </resources>

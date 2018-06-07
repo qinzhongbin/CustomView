@@ -1,4 +1,4 @@
-package com.ql.customview;
+package com.ql.customview.paint;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -64,7 +64,7 @@ public class Path extends View {
     }
 
     /**
-     * 填充类型
+     * 填充
      */
     private void fillType() {
         paint.reset();
@@ -80,6 +80,9 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
+    /**
+     * 平移
+     */
     private void offSet() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -94,7 +97,7 @@ public class Path extends View {
     }
 
     /**
-     * 添加路劲
+     * 添加路径
      */
     private void addPath() {
         paint.reset();
@@ -208,6 +211,4 @@ public class Path extends View {
         }
         canvas.drawPath(path, paint);
     }
-
-
 }

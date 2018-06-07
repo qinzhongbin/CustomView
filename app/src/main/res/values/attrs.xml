@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TestView">
+    <declare-styleable name="Attribute">
         <attr name="text" format="string" />
         <attr name="color" format="color" />
         <attr name="dimen" format="dimension" />
         <attr name="android:text" />
     </declare-styleable>
 
-
-
-
-    <declare-styleable name="CustomTitleView">
-        <attr name="titleText" format="string" />
-        <attr name="titleTextColor" format="color" />
-        <attr name="titleTextSize" format="dimension" />
-    </declare-styleable>
-
-    <attr name="CustomStyle" format="reference"/>
-
-
+    <attr name="CustomStyle" format="reference" />
 
 </resources>
