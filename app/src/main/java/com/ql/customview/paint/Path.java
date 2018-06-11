@@ -53,7 +53,9 @@ public class Path extends View {
         super.onDraw(canvas);
 
         this.canvas = canvas;
+
         drawGrid();
+
 //        lineTo();
 //        quadTo();
 //        cubicTo();
@@ -137,7 +139,7 @@ public class Path extends View {
     }
 
     /**
-     * 测试cubicTo
+     * 三次贝塞尔曲线
      */
     private void cubicTo() {
         paint.reset();
@@ -153,7 +155,7 @@ public class Path extends View {
     }
 
     /**
-     * 测试quadTo
+     * 二次贝塞尔曲线
      */
     private void quadTo() {
         paint.reset();

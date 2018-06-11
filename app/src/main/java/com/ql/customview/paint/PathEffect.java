@@ -3,10 +3,14 @@ package com.ql.customview.paint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ComposePathEffect;
 import android.graphics.CornerPathEffect;
 import android.graphics.DashPathEffect;
+import android.graphics.DiscretePathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathDashPathEffect;
+import android.graphics.SumPathEffect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -20,6 +24,7 @@ public class PathEffect extends View {
     private Canvas canvas;
     private WindowManager windowManager;
     private DisplayMetrics displayMetrics;
+    private float phase = 0;
 
     public PathEffect(Context context) {
         this(context, null);
@@ -57,7 +62,85 @@ public class PathEffect extends View {
 
 //        corner();
 //        dash();
-        discrete();
+//        discrete();
+//        sum();
+//        compose();
+        pathDash();
+    }
+
+    /**
+     * 路径虚线
+     */
+    private void pathDash() {
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.GREEN);
+        paint.setStyle(Paint.Style.STROKE);
+
+        path.reset();
+        path.moveTo(100, 100);
+        path.lineTo(300, 300);
+        path.lineTo(500, 400);
+        path.lineTo(700, 600);
+        path.lineTo(1000, 1500);
+
+
+        Path path1 = new Path();
+        path1.addRect(0, 0, 30, 30, Path.Direction.CW);
+        PathDashPathEffect pathDashPathEffect = new PathDashPathEffect(path1, 50, phase, PathDashPathEffect.Style.ROTATE);
+        paint.setPathEffect(pathDashPathEffect);
+        canvas.drawPath(path, paint);
+
+        phase++;
+        invalidate();
+    }
+
+    /**
+     * 混合
+     */
+    private void compose() {
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.GREEN);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5F);
+
+        path.reset();
+        path.moveTo(100, 100);
+        path.lineTo(300, 300);
+        path.lineTo(500, 400);
+        path.lineTo(700, 600);
+        path.lineTo(1000, 1500);
+
+        CornerPathEffect cornerPathEffect = new CornerPathEffect(100);
+        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{50, 50}, 0);
+        ComposePathEffect composePathEffect = new ComposePathEffect(dashPathEffect, cornerPathEffect);
+        paint.setPathEffect(composePathEffect);
+        canvas.drawPath(path, paint);
+    }
+
+    /**
+     * 相加(重合)
+     */
+    private void sum() {
+        paint.reset();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.GREEN);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5F);
+
+        path.reset();
+        path.moveTo(100, 100);
+        path.lineTo(300, 300);
+        path.lineTo(500, 400);
+        path.lineTo(700, 600);
+        path.lineTo(1000, 1500);
+
+        CornerPathEffect cornerPathEffect = new CornerPathEffect(100);
+        DashPathEffect dashPathEffect = new DashPathEffect(new float[]{50, 50}, 0);
+        SumPathEffect sumPathEffect = new SumPathEffect(dashPathEffect, cornerPathEffect);
+        paint.setPathEffect(sumPathEffect);
+        canvas.drawPath(path, paint);
     }
 
     /**
@@ -75,10 +158,10 @@ public class PathEffect extends View {
         path.lineTo(500, 100);
         path.lineTo(500, 500);
 
-//        new DiscretePathEffect()
+        DiscretePathEffect discretePathEffect = new DiscretePathEffect(100, 50);
+        paint.setPathEffect(discretePathEffect);
 
         canvas.drawPath(path, paint);
-
     }
 
     /**
@@ -100,9 +183,6 @@ public class PathEffect extends View {
         paint.setPathEffect(dashPathEffect);
 
         canvas.drawPath(path, paint);
-
-//        动态改变phase,有动画效果.
-        // TODO: 2018/6/7 去了解一下 invalidate()
     }
 
     /**
