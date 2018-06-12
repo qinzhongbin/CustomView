@@ -9,6 +9,17 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 绘制文字
+ * 1.指定开始位置
+ * drawText(String text, int start, int end, float x, float y, Paint paint)
+ * 2.指定每个文字的位置(不支持表情,已弃用.)
+ * drawPosText(char[] text, int index, int count, float[] pos, Paint paint)
+ * 3.在path指定的路径上绘制
+ * drawTextOnPath(String text, Path path, float hOffset, float vOffset, Paint paint)
+ */
 public class Text extends View {
 
     private Paint paint;
@@ -48,9 +59,6 @@ public class Text extends View {
         path();
     }
 
-    /**
-     * 用path指定的路径绘制文字
-     */
     private void path() {
         Path path = new Path();
         path.moveTo(100, 100);
@@ -63,9 +71,6 @@ public class Text extends View {
         canvas.drawTextOnPath("adcdefg", path, 100, 0, paint);
     }
 
-    /**
-     * 指定每个文字的位置
-     */
     private void eachPosition() {
         canvas.drawPosText("abcdefg".toCharArray(), 1, 5, new float[]{
                         100, 100,
@@ -76,9 +81,6 @@ public class Text extends View {
                 paint);
     }
 
-    /**
-     * 指定文字开始位置
-     */
     private void startPosition() {
         canvas.drawText("abcdefg", 1, 5, 100, 100, paint);
     }

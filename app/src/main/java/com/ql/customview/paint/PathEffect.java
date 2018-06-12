@@ -17,6 +17,23 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: Path效果
+ * 1.圆角
+ * new CornerPathEffect(float radius) --> paint.setPathEffect(cornerPathEffect)
+ * 2.虚线
+ * new DashPathEffect(float intervals[], float phase) --> paint.setPathEffect(dashPathEffect)
+ * 3.打散
+ * new DiscretePathEffect(float segmentLength, float deviation) --> paint.setPathEffect(discretePathEffect)
+ * 4.叠加(重合)
+ * new SumPathEffect(PathEffect first, PathEffect second) --> paint.setPathEffect(sumPathEffect)
+ * 5.混合
+ * new ComposePathEffect(PathEffect outerpe, PathEffect innerpe) --> paint.setPathEffect(composePathEffect)
+ * 6.Path生成的图形为基本单元的虚线效果
+ * new PathDashPathEffect(Path shape, float advance, float phase, Style style) --> paint.setPathEffect(pathDashPathEffect)
+ */
 public class PathEffect extends View {
 
     private Paint paint;
@@ -40,11 +57,6 @@ public class PathEffect extends View {
         init(context);
     }
 
-    /**
-     * 初始化
-     *
-     * @param context
-     */
     private void init(Context context) {
         paint = new Paint();
         path = new Path();
@@ -68,9 +80,6 @@ public class PathEffect extends View {
         pathDash();
     }
 
-    /**
-     * 路径虚线
-     */
     private void pathDash() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -95,9 +104,6 @@ public class PathEffect extends View {
         invalidate();
     }
 
-    /**
-     * 混合
-     */
     private void compose() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -119,9 +125,6 @@ public class PathEffect extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 相加(重合)
-     */
     private void sum() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -143,9 +146,7 @@ public class PathEffect extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 打散
-     */
+
     private void discrete() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -164,9 +165,6 @@ public class PathEffect extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 虚线
-     */
     private void dash() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -185,9 +183,6 @@ public class PathEffect extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 圆角
-     */
     private void corner() {
         paint.reset();
         paint.setAntiAlias(true);

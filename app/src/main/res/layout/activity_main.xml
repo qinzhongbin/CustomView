@@ -7,7 +7,7 @@
     tools:context="com.ql.customview.activity.MainActivity">
 
 
-    <com.ql.customview.canvas.Bitmap
+    <com.ql.customview.canvas.Clip
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

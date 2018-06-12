@@ -9,6 +9,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: Paint子类,专用于绘制文字.
+ */
 public class TextPaint extends View {
 
     private android.text.TextPaint mPaint;

@@ -15,6 +15,15 @@ import android.view.View;
 
 import com.ql.customview.R;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 色彩过滤器
+ * 1.模拟照明效果的色彩过滤器
+ * new LightingColorFilter(int mul, int add) --> paint.setColorFilter(lightingColorFilter)
+ * 2.色彩矩阵色彩过滤器
+ * new ColorMatrixColorFilter(new ColorMatrix().set(src)) --> paint.setColorFilter(colorMatrixColorFilter)
+ */
 public class ColorFilter extends View {
 
     private Paint paint;
@@ -47,10 +56,6 @@ public class ColorFilter extends View {
         init(context);
     }
 
-    /**
-     * 初始化
-     * @param context 上下文
-     */
     private void init(Context context) {
         paint = new Paint();
         path = new Path();
@@ -73,17 +78,11 @@ public class ColorFilter extends View {
         lighting();
     }
 
-    /**
-     * 模拟照明效果颜色过滤
-     */
     private void lighting() {
         paint.setColorFilter(lightingColorFilter);
         canvas.drawBitmap(bitmap, 0f, 0f, paint);
     }
 
-    /**
-     * 颜色矩阵颜色过滤
-     */
     private void colorMatrix() {
         paint.setColorFilter(colorMatrixColorFilter);
         canvas.drawBitmap(bitmap, 0f, 0f, paint);

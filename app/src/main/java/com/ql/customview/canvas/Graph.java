@@ -9,6 +9,25 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 绘制基本几何图形
+ * 1.点
+ * drawPoint(float x, float y, Paint paint)
+ * drawPoints(float[] pts, int offset, int count, Paint paint)
+ * 2.线
+ * drawLine(float startX, float startY, float stopX, float stopY, Paint paint)
+ * drawLines(float[] pts, Paint paint)
+ * 3.矩形
+ * drawRect(float left, float top, float right, float bottom, Paint paint)
+ * 4.圆角矩形
+ * drawRoundRect(float left, float top, float right, float bottom, float rx, float ry, Paint paint)
+ * 5.圆
+ * drawCircle(float cx, float cy, float radius, Paint paint)
+ * 6.弧
+ * drawArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean useCenter, Paint paint)
+ */
 public class Graph extends View {
 
     private Canvas canvas;
@@ -95,7 +114,7 @@ public class Graph extends View {
 
         canvas.drawLine(100, 100, 500, 500, paint);
 
-        canvas.drawLines(new float[]{100,100, 500, 100, 100, 300, 500, 300}, paint);
+        canvas.drawLines(new float[]{100, 100, 500, 100, 100, 300, 500, 300}, paint);
     }
 
     private void point() {
@@ -107,6 +126,6 @@ public class Graph extends View {
 
         canvas.drawPoint(250, 800, paint);
 
-        canvas.drawPoints(new float[]{100, 100, 200, 200, 300, 300, 400, 400, 500 , 500, 600, 600}, 2, 8, paint);
+        canvas.drawPoints(new float[]{100, 100, 200, 200, 300, 300, 400, 400, 500, 500, 600, 600}, 2, 8, paint);
     }
 }

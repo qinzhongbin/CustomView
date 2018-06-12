@@ -13,6 +13,14 @@ import android.view.View;
 
 import com.ql.customview.R;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 绘制位图
+ * 1.drawBitmap(Bitmap bitmap, Matrix matrix, Paint paint)
+ * 2.drawBitmap(Bitmap bitmap, float left, float top, Paint paint)
+ * 3.drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)
+ */
 public class Bitmap extends View {
 
     private Paint paint;
@@ -64,8 +72,8 @@ public class Bitmap extends View {
     }
 
     private void method_03() {
-        Rect src = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        Rect dst = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight() / 2);
+        Rect src = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight() / 2);
+        Rect dst = new Rect(0, 0, bitmap.getWidth() / 4, bitmap.getHeight() / 4);
         canvas.drawBitmap(bitmap, src, dst, paint);
     }
 

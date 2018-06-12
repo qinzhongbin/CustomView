@@ -12,6 +12,16 @@ import android.view.View;
 
 import com.ql.customview.R;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 构建方法
+ * 1.new Canvas()
+ * 2.new Canvas(Bitmap bitmap)
+ * 3.通过SurfaceView (SurfaceView有单独的绘图缓冲线程, 适用于刷新频率高的情况.)
+ * new SurfaceView(Context context) --> holder = surfaceView.getHolder() --> canvas = holder.lockCanvas() --> canvas... --> holder.unlockCanvasAndPost(canvas)
+ * 4.重写onDraw()获取
+ */
 public class Create extends View {
 
     private Canvas canvas;
@@ -30,17 +40,12 @@ public class Create extends View {
         init(context);
     }
 
-    /**
-     * 创建画布对象
-     * @param context 上下文
-     */
     private void init(Context context) {
-//        1.无参构造
         canvas = new Canvas();
-//        2.传一个Bitmap构造
+
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.test_04);
         canvas = new Canvas(bitmap);
-//        3.通过SurfaceView获取
+
         SurfaceView surfaceView = new SurfaceView(context);
         SurfaceHolder holder = surfaceView.getHolder();
         canvas = holder.lockCanvas();
@@ -50,7 +55,7 @@ public class Create extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        4.重写onDraw()获取
+
         this.canvas = canvas;
     }
 }

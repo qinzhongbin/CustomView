@@ -10,7 +10,13 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * 绘制尺量图
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 绘制尺量图(像录像一样)
+ * new Picture() --> canvas = picture.beginRecording(int width, int height) --> canvas... --> picture.endRecording() --> 绘制(3种方法,见下.)
+ * 1.Picture.draw(Canvas canvas)    此方法绘制后可能会影响Canvas状态,不建议使用.
+ * 2.Canvas.drawPicture(Picture picture, Rect dst)
+ * 3.PictureDrawable.draw(Canvas canvas)
  */
 public class Picture extends View {
 
@@ -56,9 +62,6 @@ public class Picture extends View {
         PictureDrawable_draw();
     }
 
-    /**
-     * PictureDrawable的draw方法
-     */
     private void PictureDrawable_draw() {
         PictureDrawable pictureDrawable = new PictureDrawable(picture);
 //        pictureDrawable.setBounds(100, 100, 1000, 1000);
@@ -67,18 +70,12 @@ public class Picture extends View {
         pictureDrawable.draw(canvas);
     }
 
-    /**
-     * Canvas的drawPicture方法
-     */
     private void Canvas_drawPicture() {
 //        canvas.drawPicture(picture);
 //        缩略
         canvas.drawPicture(picture, new Rect(200, 200, picture.getWidth() + 100, 300));
     }
 
-    /**
-     * Picture的draw方法(此方法绘制后可能会影响Canvas状态,不建议使用.)
-     */
     private void Picture_draw() {
         picture.draw(canvas);
     }

@@ -11,10 +11,20 @@ import android.view.View;
 import com.ql.customview.R;
 
 /**
- * 属性值定义的优先级：xml>style>Theme中的默认Sytle>默认Style（通过obtainStyledAttributes的第四个参数指定）>在Theme中直接指定属性值
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 属性获取
+ * 1.遍历第二个参数attrs
+ * attrs.getAttributeName(i)
+ * attrs.getAttributeValue(i)
+ * 2.使用TypedArray   用这个!
+ * typedArray = context.obtainStyledAttributes(attrs, R.styleable.Attribute, defStyleAttr, 0) --> attr = typedArray.getIndex(i) --> switch... --> typedArray.recycle()
+ * <p>
+ * 属性值定义的优先级：xml > style > Theme中的默认style > 默认style（第四个参数）> 在Theme中直接指定属性值
  */
 public class Attribute extends View {
     private static final String TAG = Attribute.class.getSimpleName();
+
     private TypedArray typedArray;
     private int color;
     private String text;
@@ -23,19 +33,10 @@ public class Attribute extends View {
         this(context, null);
     }
 
-
     public Attribute(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-
-    /**
-     * 使用三参构造
-     *
-     * @param context      上下文
-     * @param attrs        属性集
-     * @param defStyleAttr 自定义的style(对attrs中部分attr设置默认值)
-     */
     public Attribute(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 

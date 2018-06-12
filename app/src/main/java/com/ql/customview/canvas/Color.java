@@ -6,6 +6,14 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: 绘制颜色
+ * 1.drawColor(int color)
+ * 2.drawRGB(int r, int g, int b)
+ * 3.drawARGB(int a, int r, int g, int b)
+ */
 public class Color extends View {
 
     private Canvas canvas;

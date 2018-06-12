@@ -12,6 +12,47 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+/**
+ * Author: ql
+ * Date: 2018/6/12
+ * Desc: Path用法
+ * 1.移动起点
+ * moveTo(float x, float y) 不改变path
+ * setLastPoint(float dx, float dy) 改变path
+ * 2.直线
+ * lineTo(float x, float y)
+ * 3.close
+ * 4.贝塞尔曲线
+ * quadTo(float x1, float y1, float x2, float y2)   二次
+ * cubicTo(float x1, float y1, float x2, float y2, float x3, float y3)  三次
+ * 5.基本集合图形
+ * 圆
+ * addCircle(float x, float y, float radius, Path.Direction dir)
+ * 椭圆
+ * addOval(float left, float top, float right, float bottom, Direction dir)
+ * 矩形
+ * addRect(float left, float top, float right, float bottom, Direction dir)
+ * 圆角矩形
+ * addRoundRect(float left, float top, float right, float bottom, float rx, float ry, Direction dir)
+ * 圆弧
+ * addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle)    和上一次操作点无关
+ * arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo)    如果圆弧的起点和上次操作点坐标不同就连接两个点
+ * 6.添加一个Path
+ * addPath(Path src, float dx, float dy)
+ * 7.平移
+ * offset(float dx, float dy)
+ * 8.设置填充方式
+ * setFillType(FillType ft)
+ * 9.判断
+ * 判空
+ * isEmpty()
+ * 是否是矩形
+ * isRect(RectF rect)
+ * 10.赋值
+ * set(Path src)
+ * 11.重置
+ * reset()
+ */
 public class Path extends View {
 
     private Paint paint;
@@ -36,10 +77,6 @@ public class Path extends View {
         init(context);
     }
 
-    /**
-     * 初始化
-     * @param context 上下文
-     */
     private void init(Context context) {
         paint = new Paint();
         path = new android.graphics.Path();
@@ -65,9 +102,6 @@ public class Path extends View {
         fillType();
     }
 
-    /**
-     * 填充
-     */
     private void fillType() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -82,9 +116,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 平移
-     */
     private void offSet() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -98,9 +129,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 添加路径
-     */
     private void addPath() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -116,9 +144,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 添加图形基元
-     */
     private void addGraphicsPrimitives() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -138,9 +163,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 三次贝塞尔曲线
-     */
     private void cubicTo() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -154,9 +176,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 二次贝塞尔曲线
-     */
     private void quadTo() {
         paint.reset();
         paint.setAntiAlias(true);
@@ -170,9 +189,6 @@ public class Path extends View {
         canvas.drawPath(path, paint);
     }
 
-    /**
-     * 测试lineTo
-     */
     private void lineTo() {
         paint.reset();
         paint.setAntiAlias(true);
