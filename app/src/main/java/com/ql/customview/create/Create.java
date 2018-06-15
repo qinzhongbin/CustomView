@@ -40,7 +40,7 @@ public class Create extends View {
      *
      * @param context      上下文
      * @param attrs        属性集
-     * @param defStyleAttr 自定义的style(对attrs中部分attr设置默认值)
+     * @param defStyleAttr 当前Application或Activity所用的Theme中指定的默认Style(对attrs中部分attr设置默认值)
      */
     public Create(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
