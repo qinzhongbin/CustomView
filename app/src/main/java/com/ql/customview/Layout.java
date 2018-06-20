@@ -4,7 +4,12 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-
+/**
+ * Author: ql
+ * Date: 2018/6/20
+ * Desc: Layout过程
+ * 参考:https://www.jianshu.com/p/158736a2549d
+ */
 public class Layout extends View {
     public Layout(Context context) {
         super(context);
