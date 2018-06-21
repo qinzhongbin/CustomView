@@ -25,7 +25,6 @@ import com.ql.customview.R;
 public class Attribute extends View {
     private static final String TAG = Attribute.class.getSimpleName();
 
-    private TypedArray typedArray;
     private int color;
     private String text;
 
@@ -50,8 +49,7 @@ public class Attribute extends View {
         }
 
 //        使用TypedArray
-        typedArray = context.obtainStyledAttributes(attrs, R.styleable.Attribute, defStyleAttr, 0);
-
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Attribute, defStyleAttr, 0);
         for (int i = 0; i < typedArray.getIndexCount(); i++) {
             int attr = typedArray.getIndex(i);
             switch (attr) {
